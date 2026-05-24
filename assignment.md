@@ -1,71 +1,74 @@
 # Meeting Prep Assistant — Assignment Submission
 
-## 📌 Overview
+## Overview
 
 This project implements a **Meeting Prep Assistant** using Google AI Studio and Gemini models. The system processes uploaded meeting notes (PDF) and presentation slides to generate structured meeting intelligence.
 
 The output includes:
-- Meeting summary  
-- Key risks  
-- Talking points  
-- Next steps  
-- Cover image prompt  
+- Summary of the meeting
+- Identification of risks
+- Key stakeholder talking points
+- Recommended next steps
+- A cover image prompt representing the meeting context
 
-The solution demonstrates prompt engineering, structured outputs, UX generation using Stitch, and optional deployment workflows.
-
----
-
-## 🏗️ Architecture
-
-### 🔹 Core Components
-
-**Frontend (UX)**
-- Designed using Stitch  
-- Includes:
-  - File upload interface  
-  - Results dashboard  
-- Exported as PNG screens  
-
-**AI Layer**
-- Google AI Studio  
-- Gemini models:
-  - `gemini-2.5-flash`
-  - `gemini-2.5-pro`
-
-**Prompt Layer**
-- Structured JSON schema  
-- Grounded extraction logic  
-- Constraints to avoid hallucination  
-
-**Input Data**
-- Meeting Notes (PDF)  
-- Presentation Slides  
+The solution demonstrates structured prompt engineering, iterative refinement, and UX generation using Stitch.
 
 ---
 
-### 🔹 Processing Flow
+## Architecture
 
-1. User uploads meeting documents  
-2. Prompt is executed via Gemini  
-3. Model extracts structured insights  
-4. Output returned in JSON format  
-5. Results displayed in UI  
+### Core Components
+
+**1. AI Layer**
+- Built using Google AI Studio
+- Utilises Gemini models:
+  - `gemini-2.5-flash` (fast iteration)
+  - `gemini-2.5-pro` (improved reasoning)
+
+**2. Prompt Layer**
+- Designed using structured prompts
+- Enforces strict output schema
+- Includes grounding rules to prevent hallucination
+
+**3. Input Layer**
+- Meeting Notes (PDF)
+- Presentation Slides
+
+**4. UX Layer**
+- Designed using Stitch
+- Includes an upload interface and results dashboard
 
 ---
 
-### 🔹 Output Schema
+### Processing Flow
+
+1. User uploads meeting notes and slides  
+2. Prompt is executed in Google AI Studio  
+3. Gemini model analyses content  
+4. Structured JSON output is generated  
+5. Results are displayed in UX screens  
+
+---
+
+## Output Schema
+
+The system enforces a strict JSON format:
 
 ```json
 {
   "summary": "",
   "risks": [
-    { "risk": "", "evidence": "" }
+    {
+      "description": "",
+      "impact": "High | Medium | Low"
+    }
   ],
-  "talking_points": [
-    { "point": "", "why_it_matters": "" }
-  ],
+  "talking_points": [],
   "next_steps": [
-    { "action": "", "owner_if_known": "", "due_date_if_known": "" }
+    {
+      "action": "",
+      "owner": ""
+    }
   ],
   "cover_image_prompt": ""
 }
