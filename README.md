@@ -66,7 +66,3 @@ This serves as a **consolidated evidence pack** for the assignment.
 - ✅ Rapid UI design using Stitch  
 
 ---
-
-## 🏗️ Project Structure
-
-``
